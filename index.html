@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joker To-do List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="parallax-bg">
+        <img src="Joker-main.png" alt="Joker Wallpaper">
+    </div>
+    <div class="overlay"></div>
+
+    <div id="app">
+        <div id="app-content">
+            <h1>
+                <img class="logo" src="joker-face.png" alt="Joker Logo">
+                Joker To-do List
+            </h1>
+            <input v-model="newTask" @keyup.enter="addTask" placeholder="Enter a task'">
+            <transition-group name="slide" tag="ul">
+                <li v-for="(task, index) in tasks" :key="index">
+                    {{ task }}
+                    <button @click="deleteTask(index)" class="delete-button">&#10006;</button>
+                </li>
+            </transition-group>
+        </div>
+    </div>
+
+    <footer>
+        <p>Designed by The Joker | Chaos is fair!</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
